@@ -1,0 +1,33 @@
+<h3>New Animal</h3>
+
+<%= form_for @animal do |f| %>
+   <%= f.label "Animal Name" %>
+   <%= f.text_field :name %></br>
+
+   <%= f.label "Latin Name" %>
+   <%= f.text_field :latin_name %></br>
+
+   <h4>Kingdom Type (Select One)</h4>
+   <%= f.radio_button :kingdom, "Mammal", :checked => true %>
+   <%= label :kingdom, "Mammal" %>
+   <br />
+   <%= f.radio_button :kingdom, "Bird" %>
+   <%= label :kingdom, "Bird" %>
+   <br />
+   <%= f.radio_button :kingdom, "Fish" %>
+   <%= label :kingdom, "Fish" %>
+   <br />
+   <%= f.radio_button :kingdom, "Reptile" %>
+   <%= label :kingdom, "Reptile" %>
+   <br />
+   <%= f.radio_button :kingdom, "Amphibian" %>
+   <%= label :kingdom, "Amphibian" %>
+   <br />
+   <%= f.submit %>
+   
+   <% if @errors %>
+      <% @errors.each do |msg| %>
+      <p><%= msg %></p>
+      <% end %>
+   <% end %>
+<% end %>

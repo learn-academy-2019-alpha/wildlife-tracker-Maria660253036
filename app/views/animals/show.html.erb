@@ -1,0 +1,22 @@
+Name: <%= @animal.name %>
+Latin Name: <%= @animal.latin_name %>
+Class: <%= @animal.kingdom %>
+
+<ul>
+    <% @animal.sightings.each do |sighting| %>
+    <li>
+    Date: <%= sighting.date %><br />
+    Time: <%= sighting.time %><br />
+    Latitude: <%= sighting.latitude %><br />
+    Longitude: <%= sighting.longitude %>
+    </li>
+    <br />
+    <%= link_to "Edit Sighting", edit_sighting_path(sighting) %>
+    <br />
+    <%= link_to "Delete Sighting", sighting_path(sighting), :method => :delete %>
+    <br />
+    <br />
+    <br />
+<% end %>
+</ul>
+<%= link_to "New Animal Sighting", new_sighting_path(animal_id: @animal.id) %>
